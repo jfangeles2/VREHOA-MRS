@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "vrehoa-mrs": {
+      "hosting": {
+        "VREHOA-MRS": [
+          "vrehoa-mrs"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "vrehoa-mrs"
+  }
+}

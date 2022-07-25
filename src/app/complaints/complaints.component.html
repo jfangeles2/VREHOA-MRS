@@ -1,0 +1,22 @@
+<!-- Complaints Page -->
+<h2>Complaints</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date Created</th>
+      <th scope="col">Complainant UID</th>
+      <th scope="col">Short Description</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let complaint of complaints">
+      <td>{{ complaint.dateCreated.toDate() | date }}</td>
+      <td>{{ complaint.uid }}</td>
+      <td>{{ complaint.shortDescription }}</td>
+      <td>{{ complaint.status }}</td>
+      <td>Icon 1 Icon 2</td>
+    </tr>
+  </tbody>
+</table>
+<button (click)="addComplaint()">ADD Complaint</button>
