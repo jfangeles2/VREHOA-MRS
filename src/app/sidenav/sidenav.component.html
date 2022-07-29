@@ -1,8 +1,9 @@
 <!-- this component will take 100% of the dimensions of the container -->
 <div class="sidenav">
-  <a *ngFor="let route of routes" 
-  class="sidenav__links" 
-  [routerLink]="route.link"
-  routerLinkActive="active" 
-  ariaCurrentWhenActive="page">{{ route.pageName }}</a>
+  <div class="sidenav__content">
+    <a *ngFor="let route of routes" class="sidenav__content__links" [routerLink]="route.link" routerLinkActive="active" ariaCurrentWhenActive="page">{{ route.pageName }}</a>
+  </div>
+  <div class="sidenav__footer">
+    <button (click)="logout()" class="sidenav__footer__logout-button">LOGOUT</button>
+  </div>
 </div>

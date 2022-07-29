@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Route } from '../_shared/models';
+import { AuthService } from '../_shared/services/auth.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -10,28 +11,31 @@ export class SidenavComponent implements OnInit {
   routes: Route[] = [
     {
       icon: "",
-      link: "",
+      link: "/app",
       pageName: "Dashboard"
     },
     {
       icon: "",
-      link: "/complaints",
+      link: "/app/complaints",
       pageName: "Complaints"
     },
     {
       icon: "",
-      link: "",
+      link: "/app/expenses",
       pageName: "Expenses"
     },
     {
       icon: "",
-      link: "",
+      link: "/app/income",
       pageName: "Income"
     },
   ]
-  constructor() { }
+  constructor(private authservice: AuthService) { }
 
   ngOnInit(): void {
   }
 
+  logout(): void {
+    this.authservice.logout()
+  }
 }

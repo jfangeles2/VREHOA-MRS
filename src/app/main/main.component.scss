@@ -1,0 +1,25 @@
+.page {
+  height: 100vh;
+}
+
+.header {
+  background-color: green;
+  text-align: left;
+  height: 7%;
+  align-items: center;
+
+  &__label {
+    text-align: left;
+  }
+}
+
+.main {
+  background-color: rgb(207, 75, 75);
+  height: 93%;
+  &__sidenav {
+    padding: 0;
+  }
+  &__content {
+    padding: 1.5%
+  }
+}

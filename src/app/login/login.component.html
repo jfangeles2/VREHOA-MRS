@@ -1,0 +1,49 @@
+<!-- 
+  labels use the id of the input field
+  [(ngModel)] for input fields is for 2 way bindings
+  name in input field are required
+  #<email> in input fields are used for validations; email.valid
+ -->
+<div class="main-container">
+  <form #formLogin="ngForm" (ngSubmit)="login()">
+    <!-- EMAIL -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" [(ngModel)]="loginForm.email" name="email" #email="ngModel" required email/>
+    </div>
+    <!-- INVALID EMAIL WARNINGS -->
+    <div *ngIf="email.invalid && email.touched" class="email-errors">
+      <p *ngIf="email.errors?.email">Invalid Email</p>
+      <p *ngIf="email.errors?.required">This is a required field.</p>
+    </div>
+
+    <!-- PASSWORD -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" [(ngModel)]="loginForm.password" name="password" #password="ngModel" required minlength="8"/>
+    </div>
+    <!-- INVALID PASSWORD WARNINGS -->
+    <div *ngIf="password.invalid && password.touched" class="password-errors">
+      <p *ngIf="password.errors?.minlength">Password should be 8 or more characters</p>
+      <p *ngIf="password.errors?.required">This is a required field.</p>
+    </div>
+
+    <!-- LOGIN BUTTON -->
+    <button [disabled]="!formLogin.form.valid">
+      <ng-container *ngIf="!isLoading()">
+        Login
+      </ng-container>
+      <ng-container *ngIf="isLoading()">
+        Loading...
+      </ng-container>
+    </button>
+
+    <!-- DEBUG -->
+    <!-- {{ loginForm.email }} -->
+    <!-- {{ loginForm.password }} -->
+    <!-- Valid {{ email.valid }} -->
+    <!-- Touched {{ email.touched }} -->
+    <!-- {{ email.errors }}
+    {{ password.errors?.minlength }} -->
+  </form>
+</div>
