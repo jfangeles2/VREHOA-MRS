@@ -5,45 +5,51 @@
   #<email> in input fields are used for validations; email.valid
  -->
 <div class="main-container">
-  <form #formLogin="ngForm" (ngSubmit)="login()">
-    <!-- EMAIL -->
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" [(ngModel)]="loginForm.email" name="email" #email="ngModel" required email/>
-    </div>
-    <!-- INVALID EMAIL WARNINGS -->
-    <div *ngIf="email.invalid && email.touched" class="email-errors">
-      <p *ngIf="email.errors?.email">Invalid Email</p>
-      <p *ngIf="email.errors?.required">This is a required field.</p>
-    </div>
-
-    <!-- PASSWORD -->
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" [(ngModel)]="loginForm.password" name="password" #password="ngModel" required minlength="8"/>
-    </div>
-    <!-- INVALID PASSWORD WARNINGS -->
-    <div *ngIf="password.invalid && password.touched" class="password-errors">
-      <p *ngIf="password.errors?.minlength">Password should be 8 or more characters</p>
-      <p *ngIf="password.errors?.required">This is a required field.</p>
-    </div>
-
-    <!-- LOGIN BUTTON -->
-    <button [disabled]="!formLogin.form.valid">
-      <ng-container *ngIf="!isLoading()">
-        Login
-      </ng-container>
-      <ng-container *ngIf="isLoading()">
-        Loading...
-      </ng-container>
-    </button>
-
-    <!-- DEBUG -->
-    <!-- {{ loginForm.email }} -->
-    <!-- {{ loginForm.password }} -->
-    <!-- Valid {{ email.valid }} -->
-    <!-- Touched {{ email.touched }} -->
-    <!-- {{ email.errors }}
-    {{ password.errors?.minlength }} -->
-  </form>
+  <div class="splash col-8">
+    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" class="splash-image">
+  </div>
+  <div class="col-4 main">
+    <form #formLogin="ngForm" (ngSubmit)="login()" class="form shadow-lg">
+      <h1>Login</h1>
+      <!-- EMAIL -->
+      <div class="main-container__form__form-group">
+        <label class="form-label my-1" for="email">Email</label>
+        <input class="form-control my-2" type="email" [(ngModel)]="loginForm.email" name="email" #email="ngModel" required email/>
+      </div>
+      <!-- INVALID EMAIL WARNINGS -->
+      <div *ngIf="email.invalid && email.touched">
+        <p class="alert alert-danger" *ngIf="email.errors?.email">Invalid Email</p>
+        <p class="alert alert-danger" *ngIf="email.errors?.required">This is a required field.</p>
+      </div>
+  
+      <!-- PASSWORD -->
+      <div class="form-group">
+        <label class="form-label my-1" for="password">Password</label>
+        <input class="form-control my-2" type="password" [(ngModel)]="loginForm.password" name="password" #password="ngModel" required minlength="8"/>
+      </div>
+      <!-- INVALID PASSWORD WARNINGS -->
+      <div *ngIf="password.invalid && password.touched">
+        <p class="alert alert-danger" *ngIf="password.errors?.minlength">Password should be 8 or more characters</p>
+        <p class="alert alert-danger" *ngIf="password.errors?.required">This is a required field.</p>
+      </div>
+  
+      <!-- LOGIN BUTTON -->
+      <button class="loginbutton btn btn-primary my-2" [disabled]="!formLogin.form.valid">
+        <ng-container *ngIf="!isLoading">
+          Login
+        </ng-container>
+        <ng-container *ngIf="isLoading">
+          Loading...
+        </ng-container>
+      </button>
+  
+      <!-- DEBUG -->
+      <!-- {{ loginForm.email }} -->
+      <!-- {{ loginForm.password }} -->
+      <!-- Valid {{ email.valid }} -->
+      <!-- Touched {{ email.touched }} -->
+      <!-- {{ email.errors }}
+      {{ password.errors?.minlength }} -->
+    </form>
+  </div>
 </div>

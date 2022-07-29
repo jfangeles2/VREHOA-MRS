@@ -13,18 +13,16 @@ export class LoginComponent implements OnInit {
     email: "",
     password: ""
   }
+  isLoading: boolean = false
 
   constructor(private authservice: AuthService) { }
 
   ngOnInit(): void {
+    this.isLoading = this.authservice.isLoading
   }
 
   login(): void {
     this.authservice.login(this.loginForm)
-  }
-
-  isLoading(): boolean {
-    return this.authservice.isLoading
   }
 
   isAuthenticated(): boolean {

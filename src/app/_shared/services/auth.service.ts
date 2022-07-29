@@ -33,6 +33,7 @@ export class AuthService {
     try {
       await this.auth.signOut()
       this.isAuthenticated = false
+      this.isLoading = false
       this.router.navigate([""])
     } catch (err) {
       console.log(err)
