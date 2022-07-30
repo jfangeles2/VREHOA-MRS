@@ -1,12 +1,15 @@
 <div class="container-fluid page">
   <!-- All views contain the header and sidenav -->
-  <div class="row header">
+  <!-- HEADER -->
+  <div class="row header shadow-sm">
     <h3 class="header__label">VILLA REMEDIOS EAST</h3>
   </div>
   <div class="row main">
-    <div class="main__sidenav col-3">
+    <!-- SIDENAV CONTAINER -->
+    <div class="main__sidenav col-2 shadow-sm">
       <app-sidenav></app-sidenav>
     </div>
+    <!-- DYNAMIC CONTENT AREA -->
     <div class="col main__content">
       <!-- All component views are managed by router-outlet -->
       <router-outlet></router-outlet>

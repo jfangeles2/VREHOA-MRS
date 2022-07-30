@@ -16,11 +16,11 @@ import { LoginComponent } from './login/login.component';
 import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
-import { MainComponent } from './main/main.component';
 import { MainRoutingModule } from './main/main-routing.module';
 import { SignupComponent } from './signup/signup.component';
 import { MainModule } from './main/main.module';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,8 @@ import { FormsModule } from '@angular/forms';
     providePerformance(() => getPerformance()),
     provideStorage(() => getStorage()),
     provideAnalytics(() => getAnalytics()),
-    NgbModule
+    NgbModule,
+    FontAwesomeModule,
   ],
   providers: [
     ScreenTrackingService,UserTrackingService

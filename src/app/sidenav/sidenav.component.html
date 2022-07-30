@@ -1,9 +1,14 @@
 <!-- this component will take 100% of the dimensions of the container -->
 <div class="sidenav">
-  <div class="sidenav__content">
-    <a *ngFor="let route of routes" class="sidenav__content__links" [routerLink]="route.link" routerLinkActive="active" ariaCurrentWhenActive="page">{{ route.pageName }}</a>
+  <!-- SIDENAV BUTTONS -->
+  <div class="sidenav-buttons-container">
+    <div *ngFor="let route of routes" class="group1 my-4 btn">
+      <fa-icon [icon]="route.icon" class="mx-2"></fa-icon>
+      <a class="links mx-2" [routerLink]="route.link" routerLinkActive="active" ariaCurrentWhenActive="page">{{ route.pageName }}</a>
+    </div>
   </div>
-  <div class="sidenav__footer">
-    <button (click)="logout()" class="sidenav__footer__logout-button">LOGOUT</button>
+  <!-- FOOTER -->
+  <div class="footer">
+    <button (click)="logout()" class="sidenav__footer__logout-button btn btn-primary">LOGOUT</button>
   </div>
 </div>

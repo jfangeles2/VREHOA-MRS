@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { faHome, faFistRaised, faBriefcase, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+import { } from '@fortawesome/free-regular-svg-icons'
 import { Route } from '../_shared/models';
 import { AuthService } from '../_shared/services/auth.service';
 
@@ -10,22 +12,22 @@ import { AuthService } from '../_shared/services/auth.service';
 export class SidenavComponent implements OnInit {
   routes: Route[] = [
     {
-      icon: "",
+      icon: faHome,
       link: "/app",
       pageName: "Dashboard"
     },
     {
-      icon: "",
+      icon: faFistRaised,
       link: "/app/complaints",
       pageName: "Complaints"
     },
     {
-      icon: "",
+      icon: faBriefcase,
       link: "/app/expenses",
       pageName: "Expenses"
     },
     {
-      icon: "",
+      icon: faMoneyBill,
       link: "/app/income",
       pageName: "Income"
     },

@@ -1,22 +1,57 @@
 <!-- Complaints Page -->
-<h2>Complaints</h2>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Date Created</th>
-      <th scope="col">Complainant UID</th>
-      <th scope="col">Short Description</th>
-      <th scope="col">Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let complaint of complaints">
-      <td>{{ complaint.dateCreated.toDate() | date }}</td>
-      <td>{{ complaint.uid }}</td>
-      <td>{{ complaint.shortDescription }}</td>
-      <td>{{ complaint.status }}</td>
-      <td>Icon 1 Icon 2</td>
-    </tr>
-  </tbody>
-</table>
-<button (click)="addComplaint()">ADD Complaint</button>
+<div class="tableContainer shadow-lg">
+  <!-- HEADER -->
+  <div class="headerContainer px-3 py-1">
+    <!-- HEADER TITLE -->
+    <h2 class="col">Complaints</h2>
+    <!-- HEADER ADD COMPLAINT BUTTON -->
+    <button class="col-2 btn btn-primary addButton" (click)="addComplaint()">ADD Complaint</button>
+    <!-- HEADER SEARCH BAR -->
+    <form class="col-4 searchbox">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+  <!-- BODY -->
+  <div class="bodyContainer">
+    <table class="table">
+      <!-- TABLE HEADER -->
+      <thead class="tableHeader">
+        <tr>
+          <th scope="col">Date Created</th>
+          <th scope="col">Complainant UID</th>
+          <th scope="col">Short Description</th>
+          <th scope="col">Status</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <!-- TABLE BODY -->
+      <tbody class="tableBody">
+        <tr class="tableBodyRow" *ngFor="let complaint of complaints">
+          <td class="tableBodyRowCol">{{ complaint.dateCreated.toDate() | date }}</td>
+          <td class="tableBodyRowCol">{{ complaint.uid }}</td>
+          <td class="tableBodyRowCol">{{ complaint.shortDescription }}</td>
+          <td class="tableBodyRowCol">{{ complaint.status }}</td>
+          <td class="tableBodyRowCol">
+            <button class="btn btn-success">View</button>
+            <fa-icon [icon]="pencilIcon" class="mx-2"></fa-icon>
+            <fa-icon [icon]="trashIcon" class="mx-2"></fa-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- TABLE FOOTER -->
+    <div class="tableFoot">
+      <!-- PAGINATION -->
+      <nav aria-label="Page navigation example" class="paginationNav">
+        <ul class="pagination">
+          <li class="page-item"><div class="page-link">Previous</div></li>
+          <li class="page-item"><div class="page-link">1</div></li>
+          <li class="page-item"><div class="page-link">2</div></li>
+          <li class="page-item"><div class="page-link">3</div></li>
+          <li class="page-item"><div class="page-link">Next</div></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

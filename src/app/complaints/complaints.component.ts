@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ComplaintService } from '../_shared/services/complaint.service';
 import { Complaint } from '../_shared/models';
 import { Subscription } from 'rxjs';
+import { faPenAlt, faPencilAlt, faTrash} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-complaints',
@@ -10,6 +11,8 @@ import { Subscription } from 'rxjs';
 })
 export class ComplaintsComponent implements OnInit, OnDestroy {
 
+  pencilIcon = faPenAlt
+  trashIcon = faTrash
   complaints: Complaint[] = []
   complaintsSubscription: Subscription = new Subscription()
 

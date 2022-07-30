@@ -1,3 +1,58 @@
 td, th {
   text-align: center;
 }
+
+.tableContainer {
+  border-radius: 1.2em;
+}
+
+.headerContainer {
+  background-color: rgb(144, 186, 173);
+  display: flex;
+  height: 10%;
+  width: 100%;
+  border-top-left-radius: 1.2em;
+  border-top-right-radius: 1.2em;
+}
+
+.searchbox {
+  display: flex;
+}
+
+.addButton {
+  
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.tableBody {
+  background-color: rgb(228, 228, 228);
+  // border-bottom-left-radius: 1.2em;
+  // border-bottom-right-radius: 1.2em;
+}
+
+.tableHeader {
+  background-color: rgb(154, 200, 186);
+}
+
+// .table, .bodyContainer, .tableContainer, .tableBody, .tableBodyRow {
+//   border-radius: 1.2em !important;
+//   border-bottom-left-radius: 1.2em;
+// }
+
+// .tableBodyRowCol {
+//   border-radius: 1.2em;
+// }
+
+.tableFoot {
+  width: 100%;
+  background-color: rgb(228, 228, 228);
+  border-bottom-left-radius: 1.2em;
+  border-bottom-right-radius: 1.2em;
+  padding-block: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
