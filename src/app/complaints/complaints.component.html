@@ -33,7 +33,7 @@
           <td class="tableBodyRowCol">{{ complaint.shortDescription }}</td>
           <td class="tableBodyRowCol">{{ complaint.status }}</td>
           <td class="tableBodyRowCol">
-            <button class="btn btn-success">View</button>
+            <button class="btn btn-success" (click)="open(complaint)">View</button>
             <fa-icon [icon]="pencilIcon" class="mx-2"></fa-icon>
             <fa-icon [icon]="trashIcon" class="mx-2"></fa-icon>
           </td>

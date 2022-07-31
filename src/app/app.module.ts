@@ -21,6 +21,7 @@ import { SignupComponent } from './signup/signup.component';
 import { MainModule } from './main/main.module';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ViewComplaintModalComponent } from './complaints/view-complaint-modal/view-complaint-modal.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ComplaintsComponent,
     DashboardComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ViewComplaintModalComponent
   ],
   imports: [
     FormsModule,

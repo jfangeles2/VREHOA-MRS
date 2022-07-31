@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Complaint } from '../models';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
-import { FirebaseApp } from '@angular/fire/compat';
 import { Timestamp } from '@firebase/firestore';
 
 @Injectable({
@@ -29,5 +28,18 @@ export class ComplaintService {
       status: "Status 2",
       uid: "Any"
     })
+  }
+
+  changeStatus(complaintId: string, desiredStatus: string): void {
+  this.firestore
+    .collection('Complaints')
+    .doc(complaintId)
+    .update({status: desiredStatus})
+    .then(() => {
+      console.log('done');
+    })
+    .catch(function(error) {
+    console.error('Error writing document: ', error);
+    });
   }
 }
