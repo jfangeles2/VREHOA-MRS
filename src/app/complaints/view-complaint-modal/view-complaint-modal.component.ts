@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Complaint } from 'src/app/_shared/models';
+import { Complaint } from '../../_shared/models';
 import { Timestamp } from "@firebase/firestore";
 import { ComplaintService } from 'src/app/_shared/services';
 

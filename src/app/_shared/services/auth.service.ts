@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { loginForm } from '../models/loginForm.model';
+import { loginForm } from '../models';
 
 @Injectable({
   providedIn: 'root'

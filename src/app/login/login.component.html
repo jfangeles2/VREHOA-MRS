@@ -4,15 +4,19 @@
   name in input field are required
   #<email> in input fields are used for validations; email.valid
  -->
-<div class="main-container">
+ <!-- LOGIN CONTAINER -->
+<div class="login-container">
+  <!-- SPLASH CONTAINER -->
   <div class="splash col-8">
-    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" class="splash-image">
+    <img class="splash-image" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" class="splash-image">
   </div>
+  <!-- MAIN CONTENT CONTAINER -->
   <div class="col-4 main">
+    <!-- FORM -->
     <form #formLogin="ngForm" (ngSubmit)="login()" class="form shadow-lg">
       <h1>Login</h1>
       <!-- EMAIL -->
-      <div class="main-container__form__form-group">
+      <div class="login-container__form__form-group">
         <label class="form-label my-1" for="email">Email</label>
         <input class="form-control my-2" type="email" [(ngModel)]="loginForm.email" name="email" #email="ngModel" required email/>
       </div>
