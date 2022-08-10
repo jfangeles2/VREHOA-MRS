@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faHome, faFistRaised, faBriefcase, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { Route } from '../_shared/models';
-import { AuthService } from '../_shared/services';
+import { AuthService } from '../_shared/services/auth.service';
 
 @Component({
   selector: 'app-sidenav',

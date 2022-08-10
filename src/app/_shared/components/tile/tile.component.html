@@ -1,0 +1,28 @@
+<div class="tileContainer shadow">
+  <div class="contentContainer col-10">
+    <p class="description expenseInfo">{{ description }}</p>
+    <div class="expenseDetailsContainer">
+      <span class="expenseInfo">
+        {{ amount }}
+      </span>
+      <span class="expenseInfo mx-auto">
+        {{dateCreated.toDate() | date}}
+      </span>
+      <span class="expenseInfo mx-auto">
+        {{ category }}
+      </span>
+      <span class="expenseInfo mx-auto">
+        {{ verified }}
+      </span>
+    </div>
+  </div>
+  <div class="buttonContainer col-2">
+    <button class="btn btn-success btn-lg w-100">View</button>
+  </div>
+</div>
+
+
+<!-- <h1>{{ description }}</h1>
+  <h1>{{ amount }}</h1>
+  <h1>{{ dateCreated.toDate() | date }}</h1>
+  <h1>{{ verified }}</h1> -->

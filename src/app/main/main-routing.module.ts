@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ComplaintsComponent } from '../complaints/complaints.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { ExpensesComponent } from '../expenses/expenses.component';
 import { MainComponent } from './main.component';
 
 const routes: Routes = [
@@ -10,7 +11,7 @@ const routes: Routes = [
     children: [
       { path: '', component: DashboardComponent },
       { path: 'complaints', component: ComplaintsComponent },
-      { path: 'expenses', component: ComplaintsComponent },
+      { path: 'expenses', component: ExpensesComponent },
       { path: 'income', component: ComplaintsComponent },
     ]
   },
