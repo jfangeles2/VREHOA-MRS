@@ -1,0 +1,40 @@
+<div class="container p-3">
+  <form #formAddComplaint="ngForm" (ngSubmit)="fm()" class="form shadow-lg">
+    <h1>Add Complaint</h1>
+
+    <!-- SHORT DESCRIPTION -->
+    <div class="short-description-form-group">
+      <label class="form-label my-1" for="shortDescription">Short Description</label>
+      <input class="form-control my-2" type="text" [(ngModel)]="fc.shortDescription" name="shortDescription" #shortDescription="ngModel" required/>
+    </div>
+    <!-- SHORT DESCRIPTION WARNINGS -->
+    <div *ngIf="shortDescription.invalid && shortDescription.touched">
+      <p class="alert alert-danger" *ngIf="shortDescription.errors?.required">This is a required field.</p>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="description-form-group">
+      <label class="form-label my-1" for="description">Description</label>
+      <input class="form-control my-2" type="text" [(ngModel)]="fc.description" name="description" #description="ngModel" required/>
+    </div>
+    <!-- DESCRIPTION WARNINGS -->
+    <div *ngIf="description.invalid && description.touched">
+      <p class="alert alert-danger" *ngIf="description.errors?.required">This is a required field.</p>
+    </div>
+
+    <!-- ADD COMPLAINT BUTTON -->
+    <button class="add-complaint-btn btn btn-primary my-2" [disabled]="!formAddComplaint.form.valid">
+      <ng-container *ngIf="!isLoading">
+        ADD COMPLAINT
+      </ng-container>
+      <ng-container *ngIf="isLoading">
+        Loading...
+      </ng-container>
+    </button>
+
+    <!-- DEBUG -->
+    {{ fc.shortDescription }}
+    {{ fc.description }}
+    {{ fc.dateCreated.toDate() | date }}
+  </form>
+</div>

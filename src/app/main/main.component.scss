@@ -1,11 +1,12 @@
 .page {
-  height: 100vh;
+  height: 100%;
+  width: 100%;
 }
 
 .header {
   position: sticky !important;
   position: -webkit-sticky;
-  top: 0;
+  top: 0px;
   background-color: rgb(161, 229, 171);
   text-align: left;
   height: 7%;
@@ -18,14 +19,18 @@
 
 .main {
   height: 93%;
+  width: 100%;
+  // overflow: auto; // NO
+  // overflow: hidden; // NO
   &__sidenav {
+    height: 100%;
+    padding: 0;
     position: sticky !important;
     position: -webkit-sticky;
-    left: 0;
-    top: 1;
-    padding: 0;
+    top: 1000px;
   }
   &__content {
+    height: 100%;
     // overflow: scroll;
     padding: 1.5%
   }

@@ -24,6 +24,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ViewComplaintModalComponent } from './complaints/view-complaint-modal/view-complaint-modal.component';
 import { ExpensesComponent } from './expenses/expenses.component';
 import { TileComponent } from './_shared/components/tile/tile.component';
+import { AddComplaintModalComponent } from './complaints/add-complaint-modal/add-complaint-modal.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TileComponent } from './_shared/components/tile/tile.component';
     SignupComponent,
     ViewComplaintModalComponent,
     ExpensesComponent,
-    TileComponent
+    TileComponent,
+    AddComplaintModalComponent
   ],
   imports: [
     FormsModule,

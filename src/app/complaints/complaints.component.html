@@ -5,7 +5,7 @@
     <!-- HEADER TITLE -->
     <h2 class="col">Complaints</h2>
     <!-- HEADER ADD COMPLAINT BUTTON -->
-    <button class="col-2 btn btn-primary addButton" (click)="addComplaint()">ADD Complaint</button>
+    <button class="col-2 btn btn-primary addButton" (click)="openAddComplaintModal()">ADD Complaint</button>
     <!-- HEADER SEARCH BAR -->
     <form class="col-4 searchbox">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -33,7 +33,7 @@
           <td class="tableBodyRowCol">{{ complaint.shortDescription }}</td>
           <td class="tableBodyRowCol">{{ complaint.status }}</td>
           <td class="tableBodyRowCol">
-            <button class="btn btn-success" (click)="open(complaint)">View</button>
+            <button class="btn btn-success" (click)="viewComplaint(complaint)">View</button>
             <fa-icon [icon]="pencilIcon" class="mx-2"></fa-icon>
             <fa-icon [icon]="trashIcon" class="mx-2"></fa-icon>
           </td>

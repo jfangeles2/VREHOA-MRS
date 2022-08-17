@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { faPenAlt, faPencilAlt, faTrash} from '@fortawesome/free-solid-svg-icons';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ViewComplaintModalComponent } from './view-complaint-modal/view-complaint-modal.component';
+import { AddComplaintModalComponent } from './add-complaint-modal/add-complaint-modal.component'
 
 @Component({
   selector: 'app-complaints',
@@ -32,11 +33,7 @@ export class ComplaintsComponent implements OnInit, OnDestroy {
     this.complaintsSubscription.unsubscribe()
   }
 
-  addComplaint(): void {
-    this.complaintService.AddComplaint()
-  }
-
-  open(complaint: Complaint) {
+  viewComplaint(complaint: Complaint) {
     const modalRef = this.modalService.open(ViewComplaintModalComponent, { ariaLabelledBy: 'modal-basic-title' })
 
     modalRef.componentInstance.complaint = complaint
@@ -45,5 +42,9 @@ export class ComplaintsComponent implements OnInit, OnDestroy {
     // }, (reason) => {
     //   this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     // });
+  }
+
+  openAddComplaintModal(): void {
+    const modalRef = this.modalService.open(AddComplaintModalComponent, { ariaLabelledBy: 'modal-basic-title' })
   }
 }
