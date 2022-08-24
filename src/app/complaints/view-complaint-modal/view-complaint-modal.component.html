@@ -2,7 +2,7 @@
   <p>Complaint Description</p>
   <p>ID: {{ complaint.id }}</p>
   <p>Description: {{ complaint.description }}</p>
-  <p>Date Created: {{ complaint.dateCreated }}</p>
+  <p>Date Created: {{ complaint.dateCreated.toDate() | date }}</p>
   <p>Status: {{ complaint.status }}</p>
   <button class="btn btn-warning" (click)="changeStatus('Ongoing')">Ongoing</button>
   <button class="btn btn-success" (click)="changeStatus('Resolved')">Resolve</button>

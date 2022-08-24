@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ComplaintService } from 'src/app/_shared/services';
 import { Complaint } from 'src/app/_shared/models';
 import { Timestamp } from '@angular/fire/firestore'
@@ -10,28 +10,33 @@ import { Timestamp } from '@angular/fire/firestore'
 })
 export class AddComplaintModalComponent implements OnInit {
 
-  fc: Complaint = {
-    dateCreated: new Timestamp(0, 0),
-    description: "",
-    id: "",
-    shortDescription: "",
-    status: "Ongoing",
-    uid: ""
-  }
-  isLoading: boolean = false;
+  @Output() addComplaintEvent: EventEmitter<Complaint> = new EventEmitter<Complaint>()
+
+  complaint: Complaint;
+  isLoading: boolean;
   
-  constructor(private complaintService: ComplaintService) { }
+  constructor(private complaintService: ComplaintService) {
+    this.complaint = {
+      dateCreated: new Timestamp(0, 0),
+      shortDescription: "",
+      description: "",
+      id: "",
+      status: "Ongoing",
+      uid: "TODO"
+    }
+    this.isLoading = false;
+   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  addComplaint(complaint: Complaint): void {
-    this.complaintService.AddComplaint(complaint)
-  }
-
-  fm(): void {
+  addComplaint(): void {
+    // method returns the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.
     const currentDateSeconds = Date.now()
-    this.fc.dateCreated = new Timestamp(currentDateSeconds /1000, 0)
+    // Timestamp needs seconds. Not milliseconds
+    this.complaint.dateCreated = new Timestamp(currentDateSeconds / 1000, 0)
+    console.table(this.complaint)
+    // TODO user id After user auth
+    // The ID will be set in the complaintsService
+    this.complaintService.addComplaint(this.complaint)
   }
-
 }

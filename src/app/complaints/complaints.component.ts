@@ -47,4 +47,12 @@ export class ComplaintsComponent implements OnInit, OnDestroy {
   openAddComplaintModal(): void {
     const modalRef = this.modalService.open(AddComplaintModalComponent, { ariaLabelledBy: 'modal-basic-title' })
   }
+
+  fm(): void {
+    alert("fm")
+  }
+
+  deleteComplaint(complaintId: string): void {
+    this.complaintService.deleteComplaint(complaintId)
+  }
 }

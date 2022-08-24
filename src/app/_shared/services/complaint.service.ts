@@ -15,11 +15,12 @@ export class ComplaintService {
     return this.firestore.collection<Complaint>("Complaints").valueChanges()
   }
 
-  AddComplaint(complaint: Complaint): void {
+  addComplaint(complaint: Complaint): void {
     // CODE TEMPLATE FOR ADDING COMPLAINT. TESTED
-    // This creates a new document reference
+    // This creates a new document reference to get a UID in firebase
     var newDocRef = this.firestore.collection<Complaint>("Complaints").doc()
-    // This puts the object in the reference. newDocRef.ref.id gets the id in firestore
+    // This assigns the UID in firebase to the ID field of the complaint
+    complaint.id = newDocRef.ref.id
     newDocRef.set(complaint)
   }
 
@@ -31,8 +32,23 @@ export class ComplaintService {
     .then(() => {
       console.log('done');
     })
-    .catch(function(error) {
-    console.error('Error writing document: ', error);
+    .catch((error) => {
+      console.error('Error writing document: ', error);
     });
+  }
+
+  deleteComplaint(complaintId: string): void {
+    this.firestore
+      .collection('Complaints')
+      .doc(complaintId)
+      .delete()
+      .then(() => {
+        console.log("Complaint with ID " + complaintId + " is deleted.")
+        alert("Complaint with ID " + complaintId + " is deleted.")
+      })
+      .catch((error) => {
+        console.error("Error deleting document: ", error)
+        alert("Something went wrong.")
+      })
   }
 }

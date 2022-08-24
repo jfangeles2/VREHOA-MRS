@@ -1,11 +1,11 @@
 <div class="container p-3">
-  <form #formAddComplaint="ngForm" (ngSubmit)="fm()" class="form shadow-lg">
+  <form #formAddComplaint="ngForm" (ngSubmit)="addComplaint()" class="form shadow-lg">
     <h1>Add Complaint</h1>
 
     <!-- SHORT DESCRIPTION -->
     <div class="short-description-form-group">
       <label class="form-label my-1" for="shortDescription">Short Description</label>
-      <input class="form-control my-2" type="text" [(ngModel)]="fc.shortDescription" name="shortDescription" #shortDescription="ngModel" required/>
+      <input class="form-control my-2" type="text" [(ngModel)]="complaint.shortDescription" name="shortDescription" #shortDescription="ngModel" required/>
     </div>
     <!-- SHORT DESCRIPTION WARNINGS -->
     <div *ngIf="shortDescription.invalid && shortDescription.touched">
@@ -15,7 +15,7 @@
     <!-- DESCRIPTION -->
     <div class="description-form-group">
       <label class="form-label my-1" for="description">Description</label>
-      <input class="form-control my-2" type="text" [(ngModel)]="fc.description" name="description" #description="ngModel" required/>
+      <input class="form-control my-2" type="text" [(ngModel)]="complaint.description" name="description" #description="ngModel" required/>
     </div>
     <!-- DESCRIPTION WARNINGS -->
     <div *ngIf="description.invalid && description.touched">
@@ -31,10 +31,5 @@
         Loading...
       </ng-container>
     </button>
-
-    <!-- DEBUG -->
-    {{ fc.shortDescription }}
-    {{ fc.description }}
-    {{ fc.dateCreated.toDate() | date }}
   </form>
 </div>
