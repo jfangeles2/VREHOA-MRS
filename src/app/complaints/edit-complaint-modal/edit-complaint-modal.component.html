@@ -1,0 +1,14 @@
+<h1>Edit Complaint Modal</h1>
+<div>
+  <label for="shortDescription">Short Description</label>
+  <input type="text" name="shortDescription" [(ngModel)]="shortDescription">
+</div>
+
+<div>
+  <label for="description">Description</label>
+  <input type="text" name="description" [(ngModel)]="description">
+</div>
+
+<button class="btn btn-success" (click)="saveComplaint()">Save</button>
+{{ shortDescription }}
+{{ description }}

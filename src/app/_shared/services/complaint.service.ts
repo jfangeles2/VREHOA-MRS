@@ -51,4 +51,20 @@ export class ComplaintService {
         alert("Something went wrong.")
       })
   }
+
+  editComplaint(complaint: Complaint): void {
+    this.firestore
+      .collection('Complaints')
+      .doc(complaint.id)
+      .update({
+        shortDescription: complaint.shortDescription,
+        description: complaint.description
+      })
+      .then(() => {
+        console.log('done');
+      })
+      .catch((error) => {
+        console.error('Error writing document: ', error);
+      });
+    }
 }

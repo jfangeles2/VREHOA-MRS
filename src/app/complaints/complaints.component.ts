@@ -6,6 +6,7 @@ import { faPenAlt, faPencilAlt, faTrash} from '@fortawesome/free-solid-svg-icons
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ViewComplaintModalComponent } from './view-complaint-modal/view-complaint-modal.component';
 import { AddComplaintModalComponent } from './add-complaint-modal/add-complaint-modal.component'
+import { EditComplaintModalComponent } from './edit-complaint-modal/edit-complaint-modal.component'
 
 @Component({
   selector: 'app-complaints',
@@ -24,8 +25,6 @@ export class ComplaintsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.complaintsSubscription = this.complaintService.getComplaints().subscribe((complaints: Complaint[]) => {
       this.complaints = complaints
-      console.log(this.complaints[0].dateCreated)
-      console.log(typeof(this.complaints[0].dateCreated))
     })
   }
 
@@ -46,6 +45,11 @@ export class ComplaintsComponent implements OnInit, OnDestroy {
 
   openAddComplaintModal(): void {
     const modalRef = this.modalService.open(AddComplaintModalComponent, { ariaLabelledBy: 'modal-basic-title' })
+  }
+
+  openEditComplaintModal(complaint: Complaint): void {
+    const modalRef = this.modalService.open(EditComplaintModalComponent, { ariaLabelledBy: 'modal-basic-title' })
+    modalRef.componentInstance.complaint = complaint;
   }
 
   fm(): void {

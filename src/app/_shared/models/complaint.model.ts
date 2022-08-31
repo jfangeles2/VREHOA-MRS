@@ -8,3 +8,15 @@ export type Complaint = {
   status: string
   dateCreated: Timestamp
 }
+
+export function InitComplaint(): Complaint {
+  var complaint: Complaint = {
+    id: "",
+    uid: "TODO",
+    shortDescription: "",
+    description: "",
+    status: "Ongoing",
+    dateCreated: new Timestamp(0, 0)
+  }
+  return complaint;
+}

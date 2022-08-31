@@ -25,6 +25,7 @@ import { ViewComplaintModalComponent } from './complaints/view-complaint-modal/v
 import { ExpensesComponent } from './expenses/expenses.component';
 import { TileComponent } from './_shared/components/tile/tile.component';
 import { AddComplaintModalComponent } from './complaints/add-complaint-modal/add-complaint-modal.component';
+import { EditComplaintModalComponent } from './complaints/edit-complaint-modal/edit-complaint-modal.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AddComplaintModalComponent } from './complaints/add-complaint-modal/add
     ViewComplaintModalComponent,
     ExpensesComponent,
     TileComponent,
-    AddComplaintModalComponent
+    AddComplaintModalComponent,
+    EditComplaintModalComponent
   ],
   imports: [
     FormsModule,

@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Complaint } from '../../_shared/models';
-import { Timestamp } from "@firebase/firestore";
+import { Complaint, InitComplaint } from '../../_shared/models';
 import { ComplaintService } from 'src/app/_shared/services';
 
 @Component({
@@ -10,14 +9,7 @@ import { ComplaintService } from 'src/app/_shared/services';
   styleUrls: ['./view-complaint-modal.component.scss']
 })
 export class ViewComplaintModalComponent implements OnInit {
-  @Input() complaint: Complaint = {
-    id: "",
-    dateCreated: new Timestamp(0, 0),
-    description: "",
-    shortDescription: "",
-    status: "",
-    uid: ""
-  }
+  complaint: Complaint = InitComplaint()
   constructor(private modalService: NgbModal, private complaintsService: ComplaintService) { }
 
   ngOnInit(): void {

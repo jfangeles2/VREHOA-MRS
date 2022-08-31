@@ -1,7 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ComplaintService } from 'src/app/_shared/services';
-import { Complaint } from 'src/app/_shared/models';
+import { Complaint, InitComplaint } from 'src/app/_shared/models';
 import { Timestamp } from '@angular/fire/firestore'
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-add-complaint-modal',
@@ -12,20 +13,10 @@ export class AddComplaintModalComponent implements OnInit {
 
   @Output() addComplaintEvent: EventEmitter<Complaint> = new EventEmitter<Complaint>()
 
-  complaint: Complaint;
-  isLoading: boolean;
+  complaint: Complaint = InitComplaint();
+  isLoading: boolean = false;
   
-  constructor(private complaintService: ComplaintService) {
-    this.complaint = {
-      dateCreated: new Timestamp(0, 0),
-      shortDescription: "",
-      description: "",
-      id: "",
-      status: "Ongoing",
-      uid: "TODO"
-    }
-    this.isLoading = false;
-   }
+  constructor(private complaintService: ComplaintService, private modalService: NgbModal) { }
 
   ngOnInit(): void { }
 
@@ -38,5 +29,6 @@ export class AddComplaintModalComponent implements OnInit {
     // TODO user id After user auth
     // The ID will be set in the complaintsService
     this.complaintService.addComplaint(this.complaint)
+    this.modalService.dismissAll()
   }
 }
